@@ -31,6 +31,26 @@
 	</properties>
 	<dependencies>
 
+		<!-- Lombok（简化实体类，需安装Lombok插件） -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.30</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Spring Web（必选，提供@RestControllerAdvice等注解） -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Spring Validation（参数校验，BindException依赖） -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
 		<!-- Jakarta Validation 表单验证依赖 -->
 		<dependency>
    			<groupId>org.springframework.boot</groupId>
