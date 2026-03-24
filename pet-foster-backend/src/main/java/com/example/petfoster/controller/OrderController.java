@@ -1,8 +1,10 @@
 package com.example.petfoster.controller;
 
+import com.example.petfoster.common.Result;
 import com.example.petfoster.entity.OrderInfo;
 import com.example.petfoster.service.OrderInfoService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.validation.constraints.Min;
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/order")
 @RequiredArgsConstructor
@@ -17,38 +20,54 @@ import java.util.List;
 public class OrderController {
     private final OrderInfoService orderInfoService;
 
-    // 下单
+    // 1. 创建订单
     @PostMapping("/create")
-    public String createOrder(@RequestBody @Validated OrderInfo orderInfo, Authentication authentication) {
-        // 测试阶段固定用户ID为1，后续替换为真实登录用户ID
-        Long userId = 1L;
-        orderInfo.setUserId(userId);
-        
-        int result = orderInfoService.createOrder(orderInfo);
-        return result > 0 ? "下单成功" : "下单失败";
+    public Result<?> createOrder(@RequestBody @Validated OrderInfo orderInfo, Authentication authentication) {
+        Long userId = getUserIdFromAuth(authentication);
+        orderInfoService.createOrder(orderInfo, userId);
+        return Result.success("下单成功");
     }
 
-    // 查我的订单
+    // 2. 查询我的所有订单（含剩余天数）
     @GetMapping("/my")
-    public List<OrderInfo> getMyOrder() {
-        Long userId = 1L; // 测试用固定ID
-        return orderInfoService.getOrderByUserId(userId);
+    public Result<List<OrderInfo>> getMyOrder(Authentication authentication) {
+        Long userId = getUserIdFromAuth(authentication);
+        List<OrderInfo> orderList = orderInfoService.getOrderByUserId(userId);
+        return Result.success(orderList);
     }
 
-    // 结束订单+评分
-    @PutMapping("/finish/{id}")
-    public String finishOrder(
-            @PathVariable @Min(1) Long id,
+    // 3. 查询订单对应的宠物状态
+    @GetMapping("/pet/status/{orderId}")
+    public Result<String> getPetStatus(@PathVariable @Min(1) Long orderId) {
+        String status = orderInfoService.getPetStatusByOrderId(orderId);
+        return Result.success(status);
+    }
+
+    // 4. 结束订单+评分评论
+    @PutMapping("/finish/{orderId}")
+    public Result<?> finishOrder(
+            @PathVariable @Min(1) Long orderId,
+            Authentication authentication,
             @RequestParam(required = false) String comment,
-            @RequestParam(required = false) Integer score) {
-        int result = orderInfoService.finishOrder(id, comment, score);
-        return result > 0 ? "订单结束成功" : "订单结束失败";
+            @RequestParam(required = false) @Min(1) Integer score) {
+        Long userId = getUserIdFromAuth(authentication);
+        orderInfoService.finishOrder(orderId, userId, comment, score);
+        return Result.success("订单结束成功");
     }
 
-    // 删除订单
-    @DeleteMapping("/{id}")
-    public String deleteOrder(@PathVariable @Min(1) Long id) {
-        int result = orderInfoService.deleteOrder(id);
-        return result > 0 ? "删除成功" : "删除失败";
+    // 5. 删除订单
+    @DeleteMapping("/{orderId}")
+    public Result<?> deleteOrder(@PathVariable @Min(1) Long orderId, Authentication authentication) {
+        Long userId = getUserIdFromAuth(authentication);
+        orderInfoService.deleteOrder(orderId, userId);
+        return Result.success("订单删除成功");
+    }
+
+    // 从Security认证中获取用户ID
+    private Long getUserIdFromAuth(Authentication authentication) {
+        if (authentication == null || !(authentication.getPrincipal() instanceof UserDetails)) {
+            throw new IllegalArgumentException("请先登录");
+        }
+        return Long.parseLong(((UserDetails) authentication.getPrincipal()).getUsername());
     }
 }
