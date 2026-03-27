@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="login-page">
     <div class="login-card">
       <h1>🐾 宠物寄养系统登录</h1>
@@ -47,3 +48,21 @@ const handleLogin = () => {
   color: #8b78e6;
 }
 </style>
+=======
+    <div class="login-page">
+      <h1>宠物寄养-登录页</h1>
+      <!-- 后续添加登录表单 -->
+    </div>
+  </template>
+  
+  <script setup>
+  // 登录逻辑后续补充
+  </script>
+  
+  <style scoped>
+  .login-page {
+    padding: 20px;
+    text-align: center;
+  }
+  </style>
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a

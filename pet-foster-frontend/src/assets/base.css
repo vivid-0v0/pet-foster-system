@@ -1,13 +1,19 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-white: #ffffff;
+<<<<<<< HEAD
   --vt-c-white-soft: #fef7fb; /* 浅粉底色 */
   --vt-c-white-mute: #fcf4f8;
+=======
+  --vt-c-white-soft: #f8f8f8;
+  --vt-c-white-mute: #f2f2f2;
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a
 
   --vt-c-black: #181818;
   --vt-c-black-soft: #222222;
   --vt-c-black-mute: #282828;
 
+<<<<<<< HEAD
   --vt-c-indigo: #8b78e6; /* 柔和紫替代深靛蓝 */
   --vt-c-pink: #f698c9; /* 浅粉 */
   --vt-c-yellow: #ffe898; /* 浅黄 */
@@ -15,17 +21,28 @@
 
   --vt-c-divider-light-1: rgba(246, 152, 201, 0.29);
   --vt-c-divider-light-2: rgba(246, 152, 201, 0.12);
+=======
+  --vt-c-indigo: #2c3e50;
+
+  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a
   --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
   --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
 
   --vt-c-text-light-1: var(--vt-c-indigo);
+<<<<<<< HEAD
   --vt-c-text-light-2: #7d699e;
+=======
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 }
 
 /* semantic color variables for this project */
 :root {
+<<<<<<< HEAD
   --color-background: var(--vt-c-white-soft);
   --color-background-soft: var(--vt-c-white-mute);
   --color-border: var(--vt-c-divider-light-2);
@@ -35,6 +52,19 @@
   --section-gap: 160px;
   --radius: 16px; /* 大圆角增加可爱感 */
   --shadow: 0 4px 12px rgba(246, 152, 201, 0.1); /* 柔和阴影 */
+=======
+  --color-background: var(--vt-c-white);
+  --color-background-soft: var(--vt-c-white-soft);
+  --color-background-mute: var(--vt-c-white-mute);
+
+  --color-border: var(--vt-c-divider-light-2);
+  --color-border-hover: var(--vt-c-divider-light-1);
+
+  --color-heading: var(--vt-c-text-light-1);
+  --color-text: var(--vt-c-text-light-1);
+
+  --section-gap: 160px;
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a
 }
 
 @media (prefers-color-scheme: dark) {
@@ -57,13 +87,17 @@
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
+<<<<<<< HEAD
   border-radius: inherit; /* 继承圆角 */
+=======
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a
 }
 
 body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
+<<<<<<< HEAD
   background-image: url('~@/assets/images/paw-pattern.png'); /* 爪印纹理背景 */
   background-size: 200px;
   background-repeat: repeat;
@@ -71,10 +105,30 @@ body {
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
   font-family: "Comic Sans MS", "幼圆", "Microsoft YaHei", sans-serif; /* 卡通字体 */
+=======
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+<<<<<<< HEAD
   border-radius: var(--radius);
 }
 
@@ -100,3 +154,6 @@ body {
   border-radius: 10px !important;
   margin: 0 5px !important;
 }
+=======
+}
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a

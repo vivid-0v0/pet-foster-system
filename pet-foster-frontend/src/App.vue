@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+<<<<<<< HEAD
     <!-- 顶部轮播图 -->
     <el-carousel 
       height="300px" 
@@ -27,6 +28,10 @@
 
     <!-- 导航 -->
     <el-menu mode="horizontal" class="nav-menu">
+=======
+    <!-- 导航栏 -->
+    <el-menu :default-active="activeIndex" mode="horizontal" background-color="#fff" text-color="#333" active-text-color="#409eff">
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a
       <el-menu-item index="1">
         <router-link to="/login">登录</router-link>
       </el-menu-item>
@@ -41,11 +46,16 @@
       </el-menu-item>
     </el-menu>
     
+<<<<<<< HEAD
+=======
+    <!-- 路由出口（页面内容显示区域） -->
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a
     <router-view />
   </div>
 </template>
 
 <script setup>
+<<<<<<< HEAD
 </script>
 
 <style>
@@ -88,5 +98,16 @@
 .nav-menu {
   border-radius: 16px;
   margin-bottom: 20px;
+=======
+import { ref } from 'vue'
+const activeIndex = ref('1')  // 默认选中登录页
+</script>
+
+<style scoped>
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a
 }
 </style>

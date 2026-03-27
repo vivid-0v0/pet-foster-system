@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="list-page">
     <div class="card">
       <h1>📋 我的寄养订单</h1>
@@ -35,3 +36,20 @@ const list = ref([
   color: #8b78e6;
 }
 </style>
+=======
+    <div class="order-list">
+      <h1>我的寄养订单</h1>
+      <!-- 后续添加订单列表 -->
+    </div>
+  </template>
+  
+  <script setup>
+  // 订单列表逻辑后续补充
+  </script>
+  
+  <style scoped>
+  .order-list {
+    padding: 20px;
+  }
+  </style>
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a

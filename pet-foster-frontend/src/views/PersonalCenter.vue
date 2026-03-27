@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="personal-page">
     <div class="card">
       <h1>👤 个人中心</h1>
@@ -29,3 +30,20 @@
   color: #8b78e6;
 }
 </style>
+=======
+    <div class="personal-center">
+      <h1>个人中心</h1>
+      <!-- 后续添加个人信息 -->
+    </div>
+  </template>
+  
+  <script setup>
+  // 个人中心逻辑后续补充
+  </script>
+  
+  <style scoped>
+  .personal-center {
+    padding: 20px;
+  }
+  </style>
+>>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a
