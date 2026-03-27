@@ -1,26 +1,28 @@
 <template>
-<<<<<<< HEAD
-  <div class="create-page">
-    <div class="card">
-      <h1>📋 创建寄养订单</h1>
-      <el-form :model="form" label-width="100px">
+  <div class="create-container">
+    <div class="create-card">
+      <h2>📝 创建寄养订单</h2>
+      <el-form label-width="100px">
         <el-form-item label="宠物名称">
-          <el-input v-model="form.petName" />
+          <el-input placeholder="请输入宠物名称" />
         </el-form-item>
-        <el-form-item label="类型">
-          <el-select v-model="form.type">
+        <el-form-item label="宠物类型">
+          <el-select placeholder="请选择类型">
             <el-option label="狗狗" value="dog" />
             <el-option label="猫咪" value="cat" />
           </el-select>
         </el-form-item>
-        <el-form-item label="开始时间">
-          <el-date-picker v-model="form.start" type="date" />
+        <el-form-item label="寄养开始">
+          <el-date-picker type="date" placeholder="选择日期" />
         </el-form-item>
-        <el-form-item label="结束时间">
-          <el-date-picker v-model="form.end" type="date" />
+        <el-form-item label="寄养结束">
+          <el-date-picker type="date" placeholder="选择日期" />
+        </el-form-item>
+        <el-form-item label="特殊要求">
+          <el-input type="textarea" rows="3" placeholder="请填写喂养/健康要求" />
         </el-form-item>
         <el-form-item>
-          <el-button type="primary">提交</el-button>
+          <el-button type="primary" block>提交订单</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -28,48 +30,26 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-const form = ref({
-  petName: '',
-  type: '',
-  start: '',
-  end: ''
-})
 </script>
 
 <style scoped>
-.create-page {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
+.create-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 0;
+  /* 统一温馨淡黄色背景 */
+  background-color: #fffaf0;
+  min-height: 80vh;
 }
-.card {
+.create-card {
+  padding: 30px;
   background: white;
-  padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  width: 600px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
-.card h1 {
+.create-card h2 {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   color: #8b78e6;
 }
 </style>
-=======
-    <div class="order-create">
-      <h1>创建寄养订单</h1>
-      <!-- 后续添加下单表单 -->
-    </div>
-  </template>
-  
-  <script setup>
-  // 下单逻辑后续补充
-  </script>
-  
-  <style scoped>
-  .order-create {
-    padding: 20px;
-  }
-  </style>
->>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a

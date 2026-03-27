@@ -1,17 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-// 导入页面组件（先创建空组件，后续补代码）
+// 导入页面组件
 import Login from '../views/LoginForm.vue'
 import OrderCreate from '../views/OrderCreate.vue'
 import OrderList from '../views/OrderList.vue'
 import PersonalCenter from '../views/PersonalCenter.vue'
+import AboutView from '../views/AboutView.vue' // 新增
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      redirect: '/login'  // 默认跳转到登录页
+      redirect: '/login'
     },
     {
       path: '/login',
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/personal',
       name: 'personalCenter',
       component: PersonalCenter
+    },
+    { // 新增About路由
+      path: '/about',
+      name: 'about',
+      component: AboutView
     }
   ]
 })

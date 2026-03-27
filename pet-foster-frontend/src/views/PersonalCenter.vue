@@ -1,12 +1,17 @@
 <template>
-<<<<<<< HEAD
-  <div class="personal-page">
-    <div class="card">
-      <h1>👤 个人中心</h1>
-      <el-descriptions title="我的信息">
-        <el-descriptions-item label="用户名">test</el-descriptions-item>
-        <el-descriptions-item label="状态">已登录</el-descriptions-item>
+  <div class="personal-container">
+    <div class="personal-card">
+      <h2>👤 个人中心</h2>
+      <el-descriptions title="用户信息" column={1}>
+        <el-descriptions-item label="用户昵称">铲屎官</el-descriptions-item>
+        <el-descriptions-item label="联系电话">13800138000</el-descriptions-item>
+        <el-descriptions-item label="注册时间">2025-01-01</el-descriptions-item>
       </el-descriptions>
+
+      <div style="margin-top:30px">
+        <el-button type="primary">修改资料</el-button>
+        <el-button style="margin-left:10px">退出登录</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -15,35 +20,22 @@
 </script>
 
 <style scoped>
-.personal-page {
-  padding: 20px;
+.personal-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 0;
+  min-height: 70vh;
+  background-color: #fffaf0; /* 统一温馨淡黄色背景 */
 }
-.card {
-  background: white;
+.personal-card {
   padding: 30px;
+  background: white;
   border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
-.card h1 {
+.personal-card h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: #8b78e6;
 }
 </style>
-=======
-    <div class="personal-center">
-      <h1>个人中心</h1>
-      <!-- 后续添加个人信息 -->
-    </div>
-  </template>
-  
-  <script setup>
-  // 个人中心逻辑后续补充
-  </script>
-  
-  <style scoped>
-  .personal-center {
-    padding: 20px;
-  }
-  </style>
->>>>>>> eca9c944a480341c8d84a8e6ab9e97d337a8f62a
